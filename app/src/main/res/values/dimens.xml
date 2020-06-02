@@ -3,4 +3,8 @@
     <!--CardView-->
     <dimen name="cardview_corner_radius">3dp</dimen>
     <dimen name="cardview_elevation">3dp</dimen>
+    <dimen name="cardview_height">350dp</dimen>
+
+    <!--Poster movie-->
+    <dimen name="poster_height">300dp</dimen>
 </resources>

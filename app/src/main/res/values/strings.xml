@@ -6,4 +6,5 @@
 
     <string name="tab_all">Todas</string>
     <string name="tab_favorites">Favoritas</string>
+    <string name="movie_name">Movie Name</string>
 </resources>
