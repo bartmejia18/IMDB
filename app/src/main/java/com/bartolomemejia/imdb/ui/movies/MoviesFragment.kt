@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 
 import com.bartolomemejia.imdb.R
 import com.bartolomemejia.imdb.application.App
@@ -20,12 +23,17 @@ class MoviesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
     @Inject
     lateinit var viewModel: MoviesViewModel
     var adapter = MovieListAdapter(this)
+    lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         injection()
+        (requireActivity() as AppCompatActivity).run {
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         return inflater.inflate(R.layout.movies_fragment, container, false)
     }
 
@@ -48,7 +56,10 @@ class MoviesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
     }
 
     override fun onClick(movie: Movie) {
-        Log.d("ITEM_MOVIE", "click Movie")
+        viewModel.selectedMovie.value = movie
+        val bundle = Bundle()
+        bundle.putParcelable("movieSelected", movie)
+        navController.navigate(R.id.list_to_detail, bundle)
     }
 
 
