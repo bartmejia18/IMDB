@@ -9,6 +9,8 @@
     <string name="movie_name">Movie Name</string>
 
     <!-- Drawer menu -->
+    <string name="drawer_title">Movie IMDB</string>
+    <string name="description_image">Image drawer</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_watch_later">Ver después</string>
 </resources>
