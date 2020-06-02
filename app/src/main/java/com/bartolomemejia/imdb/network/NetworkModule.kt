@@ -1,4 +1,4 @@
-package com.bartolomemejia.imdb.services
+package com.bartolomemejia.imdb.network
 
 import com.bartolomemejia.imdb.utils.BASE_URL
 import dagger.Module

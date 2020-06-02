@@ -3,7 +3,7 @@ package com.bartolomemejia.imdb.repositories
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData
 import com.bartolomemejia.imdb.model.Movie
-import com.bartolomemejia.imdb.services.MovieService
+import com.bartolomemejia.imdb.network.MovieService
 import com.bartolomemejia.imdb.utils.API_KEY_STRING
 import com.bartolomemejia.imdb.utils.ParamsEmun
 import kotlinx.coroutines.CoroutineScope

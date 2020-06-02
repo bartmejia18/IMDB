@@ -41,15 +41,15 @@
 
         <TextView
             android:id="@+id/descriptionText"
-            android:layout_width="379dp"
-            android:layout_height="wrap_content"
+            android:layout_width="353dp"
+            android:layout_height="208dp"
             android:text="@{movie.overview}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingLabel"
-            app:layout_constraintVertical_bias="0.288"
-            tools:layout_editor_absoluteX="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="description movie" />
 
         <RatingBar
@@ -65,7 +65,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingLabel"
-            app:layout_constraintVertical_bias="0.0"
             tools:rating="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

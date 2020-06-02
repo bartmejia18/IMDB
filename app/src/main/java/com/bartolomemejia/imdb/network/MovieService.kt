@@ -1,4 +1,4 @@
-package com.bartolomemejia.imdb.services
+package com.bartolomemejia.imdb.network
 import com.bartolomemejia.imdb.model.Movies
 import retrofit2.Response
 import retrofit2.http.GET
