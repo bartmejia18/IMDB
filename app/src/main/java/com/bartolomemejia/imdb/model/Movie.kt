@@ -23,4 +23,5 @@ data class Movie(
     var watchLater: Boolean = false
 ) : Parcelable {
     val posterUrl get() = "$IMAGES_URL$posterPath"
+    val getRating get() = voteAverage.div(2).toFloat() //scale 1 to 10
 }

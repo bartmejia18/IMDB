@@ -30,9 +30,6 @@ class MoviesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
         savedInstanceState: Bundle?
     ): View? {
         injection()
-        (requireActivity() as AppCompatActivity).run {
-            supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        }
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         return inflater.inflate(R.layout.movies_fragment, container, false)
     }
@@ -40,7 +37,7 @@ class MoviesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupRecyclerView()
-        viewModel.movieList.observe(this, Observer {
+        viewModel.movieList.observe(viewLifecycleOwner, Observer {
             adapter.list = it
         })
         viewModel.updateMovieList()
