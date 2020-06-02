@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="movie"
             type="com.bartolomemejia.imdb.model.Movie" />
@@ -18,56 +17,55 @@
 
         <ImageView
             android:id="@+id/poster_image"
-            android:layout_width="366dp"
-            android:layout_height="477dp"
-            android:layout_margin="8dp"
+            android:layout_width="348dp"
+            android:layout_height="387dp"
             app:imageURL="@{movie.posterUrl}"
-            app:layout_constraintBottom_toTopOf="@+id/descriptionText"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.644"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.467"
-            tools:contentDescription="movie poster" />
-
-        <TextView
-            android:id="@+id/descriptionText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@{movie.overview}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/ratingLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="description movie" />
+            tools:contentDescription="movie poster"
+            tools:layout_editor_absoluteY="19dp" />
 
         <TextView
             android:id="@+id/ratingLabel"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:gravity="center_horizontal"
+            android:layout_width="379dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@{movie.title}"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="@{movie.title}"
-            app:layout_constraintBottom_toTopOf="@+id/detail_ratingBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="title movie"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/poster_image"
+            tools:text="title movie" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:text="@{movie.overview}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingLabel"
+            app:layout_constraintVertical_bias="0.288"
+            tools:layout_editor_absoluteX="1dp"
+            tools:text="description movie" />
 
         <RatingBar
             android:id="@+id/detail_ratingBar"
             style="?android:attr/ratingBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="245dp"
+            android:layout_height="48dp"
             android:isIndicator="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:max="5"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            app:layout_constraintBottom_toTopOf="@+id/descriptionText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingLabel"
+            app:layout_constraintVertical_bias="0.0"
             tools:rating="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
