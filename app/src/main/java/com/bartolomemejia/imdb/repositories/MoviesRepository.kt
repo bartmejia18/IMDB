@@ -26,7 +26,7 @@ class MoviesRepository @Inject constructor(val service: MovieService, val movieD
 
     private val networkUtils by lazy { NetworkUtils(app) }
     val listOfMovies = MutableLiveData<List<Movie>>()
-    val lastPage = MutableLiveData<Int>()
+    private val lastPage = MutableLiveData<Int>()
 
     init {
         CoroutineScope(Dispatchers.IO).launch {

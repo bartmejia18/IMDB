@@ -8,10 +8,20 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+
     <include
         layout="@layout/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        style="@style/Widget.AppCompat.Toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="#FFFFFF"-->
+<!--        android:gravity="center">-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"

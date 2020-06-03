@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IMDB</string>
     <string name="watch_later_title">Ver después</string>
+    <string name="search_movie_title">Buscar película</string>
 
     <!-- Messages toast -->
     <string name="error_network">Error de conexión de red</string>
@@ -14,4 +15,5 @@
     <string name="description_image">Image drawer</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_watch_later">Ver después</string>
+
 </resources>
