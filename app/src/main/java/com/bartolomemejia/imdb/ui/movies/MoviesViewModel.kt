@@ -8,8 +8,11 @@ import javax.inject.Inject
 
 class MoviesViewModel @Inject constructor(val moviesRepository: MoviesRepository) : ViewModel() {
     val movieList = moviesRepository.listOfMovies
-    var page = MutableLiveData<Int>(1)
+    var page = MutableLiveData(1)
     val selectedMovie = MutableLiveData<Movie>()
 
-    fun updateMovieList() = moviesRepository.fetchPokeListData()
+    fun updateMovieList(){
+        page.value = 1
+        moviesRepository.fetchMovieListData(page.value!!)
+    }
 }

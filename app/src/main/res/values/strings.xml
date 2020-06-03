@@ -2,9 +2,9 @@
     <string name="app_name">IMDB</string>
     <string name="watch_later_title">Ver después</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- Messages toast -->
+    <string name="error_network">Error de conexión de red</string>
+    <!-- Tab layout -->
     <string name="tab_all">Todas</string>
     <string name="tab_favorites">Favoritas</string>
     <string name="movie_name">Movie Name</string>
