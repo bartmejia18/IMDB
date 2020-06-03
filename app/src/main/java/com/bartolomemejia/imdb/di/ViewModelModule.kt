@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bartolomemejia.imdb.ui.favorites.FavoritesViewModel
 import com.bartolomemejia.imdb.ui.movies.MoviesViewModel
+import com.bartolomemejia.imdb.ui.watchlater.WatchLaterFragment
+import com.bartolomemejia.imdb.ui.watchlater.WatchLaterViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -22,4 +24,9 @@ abstract class ViewModelModule{
     @IntoMap
     @ViewModelKey(FavoritesViewModel::class)
     internal abstract fun fViewModel(viewModel: FavoritesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WatchLaterViewModel::class)
+    internal abstract fun wlViewModel(viewModel: WatchLaterViewModel): ViewModel
 }

@@ -1,4 +1,4 @@
-package com.bartolomemejia.imdb.ui.favorites
+package com.bartolomemejia.imdb.ui.watchlater
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,13 +13,16 @@ import com.bartolomemejia.imdb.R
 import com.bartolomemejia.imdb.application.MasterApplication
 import com.bartolomemejia.imdb.model.Movie
 import com.bartolomemejia.imdb.ui.home.MovieListAdapter
-import kotlinx.android.synthetic.main.favorites_fragment.*
+import kotlinx.android.synthetic.main.fragment_watch_later.*
 import javax.inject.Inject
 
-class FavoritesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
+/**
+ * A simple [Fragment] subclass.
+ */
+class WatchLaterFragment : Fragment(), MovieListAdapter.MovieListClickListener {
 
     @Inject
-    lateinit var viewModel: FavoritesViewModel
+    lateinit var viewModel: WatchLaterViewModel
     lateinit var adapter: MovieListAdapter
     lateinit var navController: NavController
 
@@ -30,26 +33,19 @@ class FavoritesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
         injection()
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         adapter = MovieListAdapter(requireContext(), this)
-        return inflater.inflate(R.layout.favorites_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_watch_later, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupRecyclerView()
-        viewModel.favoriteList.observe(viewLifecycleOwner, Observer {
+        viewModel.watchLaterMovieList.observe(viewLifecycleOwner, Observer {
             adapter.list = it
         })
     }
 
     private fun setupRecyclerView() {
-        favoritesRecyclerView.adapter = adapter
-    }
-
-    override fun setMenuVisibility(menuVisible: Boolean) {
-        super.setMenuVisibility(menuVisible)
-        if (menuVisible) {
-            viewModel.loadListFavorites()
-        }
+        watchLaterRecyclerView.adapter = adapter
     }
 
     private fun injection() {

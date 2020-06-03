@@ -65,7 +65,6 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
                     deleteMovieFromFavorites(movie)
                 }
             }
-
         }
     }
 
@@ -95,6 +94,4 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
     interface MovieListClickListener {
         fun onClick(movie: Movie)
     }
-
-
 }

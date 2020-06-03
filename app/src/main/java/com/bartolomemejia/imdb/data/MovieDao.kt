@@ -18,7 +18,7 @@ interface MovieDao {
     fun getFavorites(): List<Movie>
 
     @Query("SELECT * from movies where watchLater = 1")
-    fun getWatchLeterList(): List<Movie>
+    fun getWatchLaterList(): List<Movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movie: Movie)

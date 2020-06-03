@@ -26,4 +26,12 @@
             android:name="movieSelected"
             app:argType="com.bartolomemejia.imdb.model.Movie" />
     </fragment>
+    <fragment
+        android:id="@+id/navWatchLaterFragment"
+        android:name="com.bartolomemejia.imdb.ui.watchlater.WatchLaterFragment"
+        android:label="@string/watch_later_title">
+        <action
+            android:id="@+id/action_watchLaterFragment2_to_movilDetail"
+            app:destination="@id/movilDetail" />
+    </fragment>
 </navigation>

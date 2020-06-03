@@ -1,4 +1,4 @@
-package com.bartolomemejia.imdb.ui.favorites
+package com.bartolomemejia.imdb.ui.watchlater
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,14 +9,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class FavoritesViewModel @Inject constructor(val movieDao: MovieDao) : ViewModel() {
-    val favoriteList = MutableLiveData<List<Movie>>()
+class WatchLaterViewModel @Inject constructor(val movieDao: MovieDao) : ViewModel() {
+    val watchLaterMovieList = MutableLiveData<List<Movie>>()
 
-    fun loadListFavorites() {
+
+    init {
         CoroutineScope(Dispatchers.IO).launch {
-            val favorites = movieDao.getFavorites()
+            val favorites = movieDao.getWatchLaterList()
             if (favorites.isNotEmpty()) {
-                favoriteList.postValue(favorites)
+                watchLaterMovieList.postValue(favorites)
             }
         }
     }
