@@ -22,6 +22,8 @@ data class Movie(
     var isFavorite: Boolean = false,
     var watchLater: Boolean = false
 ) : Parcelable {
+    constructor(movie: Movie) : this(null, movie.movieId, movie.posterPath, movie.backdropPath, movie.voteAverage, movie.title, movie.overview, movie.isFavorite, movie.watchLater)
+
     val posterUrl get() = "$IMAGES_URL$posterPath"
     val getRating get() = voteAverage.div(2).toFloat() //scale 1 to 10
 }
