@@ -17,12 +17,7 @@ import kotlinx.coroutines.launch
 class MovieListAdapter(private val context: Context, val click: MovieListClickListener) :
     RecyclerView.Adapter<MovieListAdapter.MovieListHolder>() {
 
-    var list: List<Movie> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
+    var list: MutableList<Movie> = mutableListOf()
     private val movieDao = MovieDataBase.getDatabase(context).movieDao()
     private val favoritesId: MutableList<Int> = mutableListOf()
 
@@ -35,6 +30,11 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
             parent.context.inflate(R.layout.item_movie, parent, false),
             click
         )
+    }
+
+    fun newMovies(newData: List<Movie>){
+        list.clear()
+        list.addAll(newData)
     }
 
     override fun getItemCount(): Int = list.size

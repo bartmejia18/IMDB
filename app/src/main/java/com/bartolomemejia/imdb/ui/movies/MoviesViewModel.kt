@@ -15,4 +15,8 @@ class MoviesViewModel @Inject constructor(val moviesRepository: MoviesRepository
         page.value = 1
         moviesRepository.fetchMovieListData(page.value!!)
     }
+
+    fun nextPage() {
+        moviesRepository.fetchMovieListData(page.value!!)
+    }
 }

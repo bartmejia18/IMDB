@@ -40,7 +40,7 @@ class WatchLaterFragment : Fragment(), MovieListAdapter.MovieListClickListener {
         super.onActivityCreated(savedInstanceState)
         setupRecyclerView()
         viewModel.watchLaterMovieList.observe(viewLifecycleOwner, Observer {
-            adapter.list = it
+            adapter.newMovies(it)
         })
     }
 

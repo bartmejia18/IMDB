@@ -35,9 +35,9 @@ class FavoritesFragment : Fragment(), MovieListAdapter.MovieListClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setupRecyclerView()
         viewModel.favoriteList.observe(viewLifecycleOwner, Observer {
-            adapter.list = it
+            adapter.newMovies(it)
+            setupRecyclerView()
         })
     }
 
