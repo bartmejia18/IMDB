@@ -38,9 +38,9 @@ class WatchLaterFragment : Fragment(), MovieListAdapter.MovieListClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setupRecyclerView()
         viewModel.watchLaterMovieList.observe(viewLifecycleOwner, Observer {
             adapter.newMovies(it)
+            setupRecyclerView()
         })
     }
 

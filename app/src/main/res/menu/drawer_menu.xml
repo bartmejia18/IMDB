@@ -11,7 +11,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/navWatchLaterFragment"
-            android:icon="@drawable/ic_search_black"
+            android:icon="@drawable/ic_watch_later_black"
             android:title="@string/menu_watch_later" />
     </group>
 </menu>

@@ -1,6 +1,7 @@
 package com.bartolomemejia.imdb.ui.home
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
@@ -34,7 +35,7 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
         )
     }
 
-    fun newMovies(newData: List<Movie>){
+    fun newMovies(newData: List<Movie>) {
         list.clear()
         list.addAll(newData)
     }
@@ -62,7 +63,7 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
                 if (toggleButton.isChecked) {
                     val favoriteMovie = Movie(movie)
                     favoriteMovie.isFavorite = true
-                    insertMovieToDB(favoriteMovie)
+                    insertMovieToDBFavorites(favoriteMovie)
                 } else {
                     movie.isFavorite = false
                     deleteMovieFromFavorites(movie)
@@ -75,10 +76,8 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
                 popup.setOnMenuItemClickListener {
                     val movieWatchLater = Movie(movie)
                     movieWatchLater.watchLater = true
-                    CoroutineScope(Dispatchers.IO).launch {
-                        movieDao.insertMovie(movieWatchLater)
-                    }
-                    Toast.makeText(context,R.string.watch_later_option, Toast.LENGTH_SHORT).show()
+                    insertMovieToDBWatchLater(movieWatchLater)
+                    Toast.makeText(context, R.string.watch_later_option, Toast.LENGTH_SHORT).show()
                     false
                 }
                 popup.show()
@@ -86,7 +85,7 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
         }
     }
 
-    private fun updateDataBase(){
+    private fun updateDataBase() {
         CoroutineScope(Dispatchers.IO).launch {
             val data = movieDao.getFavorites()
             favoritesId.clear()
@@ -94,10 +93,20 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
         }
     }
 
-    private fun insertMovieToDB(movie: Movie) {
+    private fun insertMovieToDBFavorites(movie: Movie) {
         CoroutineScope(Dispatchers.IO).launch {
             movieDao.insertMovie(movie)
             updateDataBase()
+        }
+    }
+
+    private fun insertMovieToDBWatchLater(movie: Movie) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val movieDB = movieDao.getWatchLaterList().filter { it.movieId == movie.movieId }
+            if (movieDB.isEmpty()) {
+                movieDao.insertMovie(movie)
+                updateDataBase()
+            }
         }
     }
 

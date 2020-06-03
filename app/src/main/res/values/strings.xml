@@ -20,5 +20,7 @@
 
     <!-- More options -->
     <string name="watch_later_option">Ver después</string>
+    <string name="search_toolbar">Buscar</string>
+    <string name="exist_movie">La película ya esta agregada a la lista</string>
 
 </resources>

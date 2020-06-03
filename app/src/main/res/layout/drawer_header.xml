@@ -12,14 +12,6 @@
     android:paddingBottom="@dimen/header_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/description_image"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/ic_movie_black" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
