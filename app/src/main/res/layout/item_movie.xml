@@ -51,7 +51,7 @@
             app:layout_constraintTop_toTopOf="@+id/posterMovie" />
 
         <Button
-            android:id="@+id/movieOptions"
+            android:id="@+id/moreOptions"
             style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -72,6 +72,7 @@
             android:max="5"
             android:scaleX=".5"
             android:scaleY=".5"
+            android:theme="@style/RatingBar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

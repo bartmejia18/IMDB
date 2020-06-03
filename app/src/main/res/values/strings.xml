@@ -5,6 +5,8 @@
 
     <!-- Messages toast -->
     <string name="error_network">Error de conexión de red</string>
+    <string name="add_watch_later">Video agregado</string>
+
     <!-- Tab layout -->
     <string name="tab_all">Todas</string>
     <string name="tab_favorites">Favoritas</string>
@@ -15,5 +17,8 @@
     <string name="description_image">Image drawer</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_watch_later">Ver después</string>
+
+    <!-- More options -->
+    <string name="watch_later_option">Ver después</string>
 
 </resources>

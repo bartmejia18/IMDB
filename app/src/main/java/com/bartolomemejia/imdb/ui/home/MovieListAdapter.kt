@@ -3,6 +3,8 @@ package com.bartolomemejia.imdb.ui.home
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bartolomemejia.imdb.R
 import com.bartolomemejia.imdb.data.MovieDataBase
@@ -53,6 +55,7 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
             setOnClickListener { click.onClick(movie) }
             titleMovie.text = movie.title
             Glide.with(view.context).load(movie.posterUrl).into(posterMovie)
+            movieRatingBar.rating = movie.getRating
 
             toggleButton.isChecked = favoritesId.contains(movie.movieId)
             toggleButton.setOnClickListener {
@@ -64,6 +67,21 @@ class MovieListAdapter(private val context: Context, val click: MovieListClickLi
                     movie.isFavorite = false
                     deleteMovieFromFavorites(movie)
                 }
+            }
+
+            moreOptions.setOnClickListener {
+                val popup = PopupMenu(context, moreOptions)
+                popup.inflate(R.menu.more_options)
+                popup.setOnMenuItemClickListener {
+                    val movieWatchLater = Movie(movie)
+                    movieWatchLater.watchLater = true
+                    CoroutineScope(Dispatchers.IO).launch {
+                        movieDao.insertMovie(movieWatchLater)
+                    }
+                    Toast.makeText(context,R.string.watch_later_option, Toast.LENGTH_SHORT).show()
+                    false
+                }
+                popup.show()
             }
         }
     }

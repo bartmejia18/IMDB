@@ -25,7 +25,6 @@ class MovilDetailFragment : Fragment() {
 
             (activity as AppCompatActivity?)?.supportActionBar?.title = it.title
 
-            //binding.likeAdd.isChecked = it.isFavorite
             binding.detailRatingBar.rating = it.getRating
         }
 

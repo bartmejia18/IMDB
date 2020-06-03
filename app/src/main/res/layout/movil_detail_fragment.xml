@@ -22,13 +22,13 @@
             app:imageURL="@{movie.posterUrl}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:contentDescription="movie poster"
-            tools:layout_editor_absoluteY="19dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:contentDescription="movie poster" />
 
         <TextView
             android:id="@+id/ratingLabel"
-            android:layout_width="379dp"
-            android:layout_height="0dp"
+            android:layout_width="350dp"
+            android:layout_height="34dp"
             android:layout_marginTop="8dp"
             android:gravity="center_vertical"
             android:text="@{movie.title}"
@@ -43,12 +43,13 @@
             android:id="@+id/descriptionText"
             android:layout_width="353dp"
             android:layout_height="208dp"
+            android:layout_marginBottom="32dp"
             android:text="@{movie.overview}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="description movie" />
 
@@ -56,15 +57,17 @@
             android:id="@+id/detail_ratingBar"
             style="?android:attr/ratingBarStyle"
             android:layout_width="245dp"
-            android:layout_height="48dp"
+            android:layout_height="42dp"
             android:isIndicator="true"
             android:max="5"
             android:scaleX=".5"
             android:scaleY=".5"
+            android:theme="@style/RatingBar"
             app:layout_constraintBottom_toTopOf="@+id/descriptionText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingLabel"
+            app:layout_constraintTop_toBottomOf="@+id/poster_image"
+            app:layout_constraintVertical_bias="0.461"
             tools:rating="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
